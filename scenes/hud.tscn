@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://rkdf3t664rmv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msdik"]
+bg_color = Color(0, 0, 0, 0.203922)
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="CoinsPanel" type="Panel" parent="."]
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_msdik")
+
+[node name="CoinsLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.5
+offset_top = -486.5
+offset_right = -314.5
+offset_bottom = -463.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "COINS : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
