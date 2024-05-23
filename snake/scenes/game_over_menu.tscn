@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbnmv1t4ac36"]
+
+[ext_resource type="Script" path="res://snake/scripts/game_over_menu.gd" id="1_pisjf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jihtp"]
+bg_color = Color(0.607843, 0.0666667, 0.141176, 0.596078)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.917647, 0.027451, 0.121569, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_pisjf")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -187.0
+offset_right = 238.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_jihtp")
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.498
+anchor_top = 0.505
+anchor_right = 0.498
+anchor_bottom = 0.505
+offset_left = -125.0
+offset_top = -39.25
+offset_right = 126.0
+offset_bottom = 38.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Try your luck again ?"
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.412
+anchor_right = 0.5
+anchor_bottom = 0.412
+offset_left = -110.0
+offset_top = -27.6
+offset_right = 118.0
+offset_bottom = 27.4
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+
+[node name="HubButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.591
+anchor_right = 0.5
+anchor_bottom = 0.591
+offset_left = -71.0
+offset_top = -20.55
+offset_right = 70.0
+offset_bottom = 22.45
+text = "Return to Hub"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="HubButton" to="." method="on_return_hub_button_pressed"]

@@ -38,5 +38,11 @@ func check_coins_level():
 		$NextLevelButton.disabled = false
 
 func next_level():
-	$Label.show()
+	_add_a_scene_manually()
 
+var snake_scene = preload("res://snake/scenes/main.tscn").instantiate()
+
+func _add_a_scene_manually():
+	# This is like autoloading the scene, only
+	# it happens after already loading the main scene.
+	get_tree().root.add_child(snake_scene)
