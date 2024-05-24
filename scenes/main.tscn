@@ -1,51 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcbxqkj8ra5x8"]
+[gd_scene load_steps=4 format=3 uid="uid://cwhi7fpof3b0h"]
 
-[ext_resource type="Texture2D" uid="uid://b5o0ivf6kybd5" path="res://assets/background.png" id="1_557av"]
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_rrpte"]
-[ext_resource type="PackedScene" uid="uid://rkdf3t664rmv" path="res://scenes/hud.tscn" id="2_5e8g7"]
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_rhhgk"]
+[ext_resource type="Texture2D" uid="uid://b5o0ivf6kybd5" path="res://assets/background.png" id="2_j6kkv"]
+[ext_resource type="PackedScene" uid="uid://rkdf3t664rmv" path="res://scenes/hud.tscn" id="3_elsou"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_rrpte")
+script = ExtResource("1_rhhgk")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(502, 528.5)
-scale = Vector2(0.982422, 1.02832)
-texture = ExtResource("1_557av")
+position = Vector2(500, 524)
+scale = Vector2(1, 1.04688)
+texture = ExtResource("2_j6kkv")
 
-[node name="Hud" parent="." instance=ExtResource("2_5e8g7")]
+[node name="Hud" parent="." instance=ExtResource("3_elsou")]
 
 [node name="NextLevelButton" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.148
-anchor_top = 0.218
-anchor_right = 0.148
-anchor_bottom = 0.218
-offset_left = -47.0
-offset_top = -15.9
-offset_right = 47.0
-offset_bottom = 15.1
+anchor_left = 0.139
+anchor_top = 0.202
+anchor_right = 0.139
+anchor_bottom = 0.202
+offset_left = -99.0
+offset_top = -35.1
+offset_right = 99.0
+offset_bottom = 34.9
 disabled = true
 text = "Next Level"
 
-[node name="ButtonLabel" type="Label" parent="NextLevelButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.468
-anchor_top = 1.371
-anchor_right = 0.468
-anchor_bottom = 1.371
-offset_left = -39.992
-offset_top = -9.501
-offset_right = 45.008
-offset_bottom = 13.499
-text = "1000 coins "
-
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 421.0
-offset_top = 271.0
-offset_right = 762.0
-offset_bottom = 491.0
-text = "Youpi"
+offset_left = 51.0
+offset_top = 244.0
+offset_right = 238.0
+offset_bottom = 267.0
+text = "1000 coins for next level"
 
-[connection signal="pressed" from="NextLevelButton" to="." method="next_level"]
+[connection signal="pressed" from="NextLevelButton" to="." method="NextLevel"]
