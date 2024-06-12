@@ -1,15 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3ue57vg8dcom"]
+[gd_scene load_steps=6 format=3 uid="uid://d3ue57vg8dcom"]
 
-[ext_resource type="Script" path="res://snake/scripts/main.gd" id="1_ogrb0"]
-[ext_resource type="PackedScene" uid="uid://kb2mcusskkm" path="res://snake/scenes/snake_segment.tscn" id="2_qv5pq"]
+[ext_resource type="Script" path="res://snake/scripts/MainSnake.cs" id="1_mlrb6"]
 [ext_resource type="Texture2D" uid="uid://dqso4gnj6fie" path="res://snake/assets/bg.png" id="3_2xnur"]
 [ext_resource type="PackedScene" uid="uid://b7a6qtrl0hfyx" path="res://snake/scenes/hud.tscn" id="4_ivasi"]
 [ext_resource type="Texture2D" uid="uid://ddsh0lkjuv5wg" path="res://snake/assets/apple.png" id="5_48qa4"]
 [ext_resource type="PackedScene" uid="uid://dbnmv1t4ac36" path="res://snake/scenes/game_over_menu.tscn" id="6_fcc4v"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_ogrb0")
-snake_scene = ExtResource("2_qv5pq")
+script = ExtResource("1_mlrb6")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(500, 550)
@@ -28,4 +26,3 @@ offset = Vector2(25, 25)
 process_mode = 2
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
-[connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]

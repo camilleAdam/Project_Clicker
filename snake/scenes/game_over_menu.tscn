@@ -77,5 +77,6 @@ offset_right = 70.0
 offset_bottom = 22.45
 text = "Return to Hub"
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="HubButton" to="." method="on_return_hub_button_pressed"]
+[connection signal="restart" from="." to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="HubButton" to="." method="OnReturnHubButtonPressed"]

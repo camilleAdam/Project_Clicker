@@ -52,7 +52,6 @@ public partial class MainSnake : Node
         old_data.Clear();
         snake.Clear();
         snake_data.Clear();
-
         for (int i = 0; i < 3; i++)
         {
             AddSegment(start_pos + new Vector2(0, i));
@@ -140,7 +139,7 @@ public partial class MainSnake : Node
 
     private void CheckOutOfBounds()
     {
-        if (snake_data[0].x < 0 || snake_data[0].x > cells - 1 || snake_data[0].y < 0 || snake_data[0].y > cells - 1)
+        if (snake_data[0].X < 0 || snake_data[0].X > cells - 1 || snake_data[0].Y < 0 || snake_data[0].Y > cells - 1)
         {
             EndGame();
         }
