@@ -72,4 +72,9 @@ public partial class Main : Node
     {
         _AddASceneManually();
     }
+
+    private void OnShopPressed()
+    {
+        GetNode<CanvasLayer>("ShopMenu").Visible = true;
+    }
 }

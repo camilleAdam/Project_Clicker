@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwhi7fpof3b0h"]
+[gd_scene load_steps=6 format=3 uid="uid://cwhi7fpof3b0h"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_rhhgk"]
 [ext_resource type="Texture2D" uid="uid://b5o0ivf6kybd5" path="res://assets/background.png" id="2_j6kkv"]
 [ext_resource type="PackedScene" uid="uid://rkdf3t664rmv" path="res://scenes/hud.tscn" id="3_elsou"]
+[ext_resource type="PackedScene" uid="uid://domt8stuggs5g" path="res://scenes/shop_menu.tscn" id="4_fdqrh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5brt"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rhhgk")
@@ -24,6 +27,7 @@ offset_left = -99.0
 offset_top = -35.1
 offset_right = 99.0
 offset_bottom = 34.9
+theme_override_font_sizes/font_size = 22
 disabled = true
 text = "Next Level"
 
@@ -32,6 +36,32 @@ offset_left = 51.0
 offset_top = 244.0
 offset_right = 238.0
 offset_bottom = 267.0
+theme_override_font_sizes/font_size = 19
 text = "1000 coins for next level"
 
+[node name="MediumBody2D" type="CharacterBody2D" parent="."]
+visible = false
+position = Vector2(848, 902)
+scale = Vector2(500, 500)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MediumBody2D"]
+sprite_frames = SubResource("SpriteFrames_t5brt")
+
+[node name="ShopMenu" parent="." instance=ExtResource("4_fdqrh")]
+visible = false
+
+[node name="ShopButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.816
+anchor_top = 0.832
+anchor_right = 0.816
+anchor_bottom = 0.832
+offset_left = -46.0
+offset_top = -15.6
+offset_right = 46.0
+offset_bottom = 15.4
+theme_override_font_sizes/font_size = 22
+text = "Open shop"
+
 [connection signal="pressed" from="NextLevelButton" to="." method="NextLevel"]
+[connection signal="pressed" from="ShopButton" to="." method="OnShopPressed"]
