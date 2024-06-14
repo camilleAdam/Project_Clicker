@@ -4,9 +4,18 @@ using System;
 public partial class Item 
 {
 
+    public Item(String name, String descr, (int, String) effect,int price)
+    {
+        this.name = name;
+        this.effect = effect;
+        this.description = descr;
+        this.price = price;
+    }
+
+    private String icon;
     private String name;
     private String description;
-    private Tuple<int, String> effect;
+    private (int, String) effect;
     private int price;
 
     public String getName() 
@@ -29,12 +38,12 @@ public partial class Item
         this.description = descr;
     }
 
-    public Tuple<int, String> getEffect()
+    public (int, String) getEffect()
     {
         return this.effect;
     }
 
-    public void setEffect(Tuple<int, String> effect)
+    public void setEffect((int, String) effect)
     {
         this.effect = effect;
     }

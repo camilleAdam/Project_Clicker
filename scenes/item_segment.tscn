@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://sb600bwptmyu"]
+
+[ext_resource type="Texture2D" uid="uid://dahto3h8rvsgs" path="res://assets/pawn.png" id="1_f57iq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eurc"]
+
+[node name="ItemSegment" type="Node" groups=["items"]]
+
+[node name="ItemLayer" type="Panel" parent="."]
+offset_right = 731.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3eurc")
+
+[node name="BuyButton" type="Button" parent="."]
+offset_left = 637.0
+offset_top = 128.0
+offset_right = 730.0
+offset_bottom = 159.0
+text = "Price Coins"
+
+[node name="DescrLabel" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 54.0
+offset_right = 723.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 20
+text = "Description Description"
+
+[node name="EffectLabel" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 120.0
+offset_right = 634.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 17
+text = "Effects"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(80.5, 80)
+scale = Vector2(0.777778, 0.658436)
+texture = ExtResource("1_f57iq")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = 170.0
+offset_top = 4.0
+offset_right = 720.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Name"

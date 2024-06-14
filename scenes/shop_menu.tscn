@@ -64,10 +64,13 @@ text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemsPanel" type="Panel" parent="."]
+[node name="ItemsPanel" type="ScrollContainer" parent="."]
 offset_left = 135.0
-offset_top = 210.0
+offset_top = 226.0
 offset_right = 866.0
 offset_bottom = 921.0
+
+[node name="ItemsVBoxContainer" type="VBoxContainer" parent="ItemsPanel"]
+layout_mode = 2
 
 [connection signal="pressed" from="HeaderPanel/CloseButton" to="." method="OnClosePressed"]
