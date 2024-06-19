@@ -18,7 +18,7 @@ public partial class MainSnake : Node
 
     private List<Vector2> old_data = new List<Vector2>();
     private List<Vector2> snake_data = new List<Vector2>();
-    private List<Node2D> snake = new List<Node2D>();
+    private List<Panel> snake = new List<Panel>();
 
     private Vector2 start_pos = new Vector2(9, 9);
     private Vector2 up = new Vector2(0, -1);
@@ -38,7 +38,7 @@ public partial class MainSnake : Node
     {
         GetTree().Paused = false;
         GetTree().CallGroup("segments", "queue_free");
-        GetNode<Control>("GameOverMenu").Hide();
+        GetNode<CanvasLayer>("GameOverMenu").Hide();
         score = 0;
         GetNode<Label>("Hud/ScoreLabel").Text = "SCORE : " + score.ToString();
         move_direction = up;
@@ -62,9 +62,9 @@ public partial class MainSnake : Node
     private void AddSegment(Vector2 pos)
     {
         snake_data.Add(pos);
-        var SnakeSegment = (Node2D)snake_scene.Instantiate();
+        var SnakeSegment = (Panel)snake_scene.Instantiate();
         SnakeSegment.Position = (pos * cell_size) + new Vector2(0, cell_size);
-        AddChild(SnakeSegment);
+        this.AddChild(SnakeSegment);
         snake.Add(SnakeSegment);
     }
 
@@ -91,6 +91,7 @@ public partial class MainSnake : Node
             can_move = false;
             if (!game_started)
             {
+                GD.Print("hello");
                 StartGame();
             }
         }
@@ -118,10 +119,13 @@ public partial class MainSnake : Node
     {
         game_started = true;
         GetNode<Timer>("MoveTimer").Start();
+        GD.Print("hello2");
+        GD.Print(game_started);
     }
 
     private void OnMoveTimerTimeout()
     {
+        GD.Print("hello3");
         can_move = true;
         old_data = new List<Vector2>(snake_data);
         snake_data[0] += move_direction;
@@ -133,6 +137,7 @@ public partial class MainSnake : Node
             }
             snake[i].Position = (snake_data[i] * cell_size) + new Vector2(0, cell_size);
         }
+        
         CheckOutOfBounds();
         CheckSelfEaten();
         CheckFoodEaten();
@@ -188,7 +193,7 @@ public partial class MainSnake : Node
 
     private void EndGame()
     {
-        GetNode<Control>("GameOverMenu").Show();
+        GetNode<CanvasLayer>("GameOverMenu").Show();
         GetNode<Timer>("MoveTimer").Stop();
         game_started = false;
         GetTree().Paused = true;
