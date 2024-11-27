@@ -62,8 +62,7 @@ public partial class Main : Node
 
     private void _AddASceneManually()
     {
-        // This is like autoloading the scene, only
-        // it happens after already loading the main scene.
+
         var sceneInstance = snake_scene.Instantiate();
         GetTree().Root.AddChild(sceneInstance);
     }

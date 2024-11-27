@@ -14,4 +14,3 @@ func on_return_hub_button_pressed():
 
 func _on_restart_button_pressed():
 	restart.emit()
-

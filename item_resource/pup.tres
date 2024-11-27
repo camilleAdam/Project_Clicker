@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" load_steps=3 format=3 uid="uid://c46u4d2vek8l7"]
+
+[ext_resource type="Script" path="res://ItemDefinition.cs" id="1_k3mlj"]
+[ext_resource type="Texture2D" uid="uid://dahto3h8rvsgs" path="res://assets/pawn.png" id="2_cxfr4"]
+
+[resource]
+script = ExtResource("1_k3mlj")
+sprite = ExtResource("2_cxfr4")
+name = "The Pup"
+description = "Looks like the pack is here to give you a paw"
+price = 199

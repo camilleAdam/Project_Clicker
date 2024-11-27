@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDefinition" load_steps=3 format=3 uid="uid://cw5516q2w6uew"]
+
+[ext_resource type="Script" path="res://ItemDefinition.cs" id="1_x2pyq"]
+[ext_resource type="Texture2D" uid="uid://bjtrw64u7eb0t" path="res://icon.svg" id="2_e3qkx"]
+
+[resource]
+script = ExtResource("1_x2pyq")
+sprite = ExtResource("2_e3qkx")
+name = "The pack"
+description = "bfkezefnblzebf"
+price = 1000

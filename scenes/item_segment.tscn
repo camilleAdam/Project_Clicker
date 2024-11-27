@@ -1,24 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://sb600bwptmyu"]
+[gd_scene load_steps=5 format=3 uid="uid://crncdblcbvhbk"]
 
+[ext_resource type="Script" path="res://scenes/ItemSegmentController.cs" id="1_8iinh"]
 [ext_resource type="Texture2D" uid="uid://dahto3h8rvsgs" path="res://assets/pawn.png" id="1_f57iq"]
+[ext_resource type="Script" path="res://scenes/ItemSegmentManager.cs" id="3_ya1we"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eurc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax86o"]
 
-[node name="ItemSegment" type="Node" groups=["items"]]
+[node name="ItemSegment" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 0.73
+anchor_bottom = 0.143
+offset_right = -5.0
+offset_bottom = 10.85
+theme_override_constants/margin_right = 725
+theme_override_constants/margin_bottom = 161
+script = ExtResource("1_8iinh")
 
-[node name="ItemLayer" type="Panel" parent="."]
-offset_right = 731.0
-offset_bottom = 160.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_3eurc")
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
 
-[node name="BuyButton" type="Button" parent="."]
-offset_left = 637.0
-offset_top = 128.0
-offset_right = 730.0
-offset_bottom = 159.0
+[node name="ItemLayer" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_left = 1.0
+offset_right = 726.0
+offset_bottom = 161.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ax86o")
+
+[node name="BuyButton" type="Button" parent="Control"]
+offset_left = 625.0
+offset_top = 124.0
+offset_right = 718.0
+offset_bottom = 155.0
 text = "Price Coins"
 
-[node name="DescrLabel" type="Label" parent="."]
+[node name="DescrLabel" type="Label" parent="Control"]
 offset_left = 168.0
 offset_top = 54.0
 offset_right = 723.0
@@ -26,7 +44,7 @@ offset_bottom = 115.0
 theme_override_font_sizes/font_size = 20
 text = "Description Description"
 
-[node name="EffectLabel" type="Label" parent="."]
+[node name="EffectLabel" type="Label" parent="Control"]
 offset_left = 168.0
 offset_top = 120.0
 offset_right = 634.0
@@ -34,12 +52,12 @@ offset_bottom = 160.0
 theme_override_font_sizes/font_size = 17
 text = "Effects"
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="Control"]
 position = Vector2(80.5, 80)
 scale = Vector2(0.777778, 0.658436)
 texture = ExtResource("1_f57iq")
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="NameLabel" type="Label" parent="Control"]
 offset_left = 170.0
 offset_top = 4.0
 offset_right = 720.0
@@ -47,3 +65,11 @@ offset_bottom = 46.0
 theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Name"
+
+[node name="Manager" type="Node" parent="." node_paths=PackedStringArray("itemSegmentController", "name", "description", "icon", "price")]
+script = ExtResource("3_ya1we")
+itemSegmentController = NodePath("..")
+name = NodePath("../Control/NameLabel")
+description = NodePath("../Control/DescrLabel")
+icon = NodePath("../Control/Icon")
+price = NodePath("../Control/BuyButton")
